@@ -1,0 +1,20 @@
+[alias]
+	aa = add --all
+	st = status
+	co = checkout
+[user]
+	name = Oscar Johnson
+	email = o.johnsson@live.se
+[core]
+	excludesfile = /Users/ozzy/.gitignore_global
+	editor = subl
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[color]
+	ui = true
+[push]
+	default = simple

@@ -6,6 +6,7 @@ alias sbp='source ~/.bash_profile'
 alias bp='vim ~/.bash_profile'
 
 alias simple="python -m SimpleHTTPServer"
+alias emptypackage="echo '{}' > package.json"
 
 # git aliases
 alias gd="git diff"
@@ -34,6 +35,3 @@ function last_two_dirs {
 # display branch with last two dirs in terminal
 export PS1='\[\e[0;30m\]\u\[\e[0;30m\]-\[\e[0;30m\]$(last_two_dirs)\[\e[1;34m\]\[\033[1;31m\]$(parse_git_branch)\[\e[0;30m\] $ \[\e[0;30m\]'
 
-# source ~/.nvm/nvm.sh
-export NVM_DIR="/Users/ozzy/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

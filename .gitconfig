@@ -2,6 +2,7 @@
 	aa = add --all
 	st = status
 	co = checkout
+	unstage = reset HEAD --
 [user]
 	name = Oscar Johnson
 	email = o.johnsson@live.se

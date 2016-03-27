@@ -7,7 +7,7 @@
 	email = o.johnsson@live.se
 [core]
 	excludesfile = /Users/ozzy/.gitignore_global
-	editor = subl
+	editor = subl -n -w
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

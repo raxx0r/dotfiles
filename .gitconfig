@@ -19,3 +19,4 @@
 	ui = true
 [push]
 	default = simple
+	rebase = true

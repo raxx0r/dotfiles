@@ -14,5 +14,6 @@ brew cask install utorrent
 brew cask install steam
 brew cask install sublime-text
 brew cask install dropbox
+brew cask install qlmarkdown # quick look for markdown
 #brew cask install java ??
 #brew cask install microsoft-office??

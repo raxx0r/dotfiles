@@ -10,7 +10,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
-
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-vinegar'
+Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -59,6 +63,32 @@ set paste
 
 syntax enable
 
-set number
+" Indentation
+set expandtab
 set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+vnoremap > >gv
+vnoremap < <gv
 
+set number
+
+
+let g:syntastic_javascript_checkers = ['eslint']
+" Override eslint with local version where necessary.
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+  let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+  let g:syntastic_javascript_eslint_exec = local_eslint
+endif
+
+" paste from  any mode
+set clipboard=unnamed
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif

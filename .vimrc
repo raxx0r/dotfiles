@@ -8,13 +8,17 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+Plugin 'mxw/vim-jsx'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/base16-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
+Plugin 'mrtazz/simplenote.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -33,6 +37,9 @@ filetype plugin indent on    " required
 "" set a map leader for more key combos
 let mapleader = ','
 let g:mapleader = ','
+
+" For vim-move
+let g:move_key_modifier = 'C'
 
 " System to vim copy/paste and vice versa
 set clipboard=unnamed
@@ -63,6 +70,16 @@ set paste
 
 syntax enable
 
+" Search with selected text
+vnoremap // y/<C-R>"<CR>
+
+"Backup & undo - https://coderwall.com/p/sdhfug/vim-swap-backup-and-undo-files
+set directory=~/.vim/.swp//
+
+" Show trailing whitespace
+set listchars=tab:>-,trail:-
+set list
+
 " Indentation
 set expandtab
 set tabstop=2
@@ -71,9 +88,34 @@ set softtabstop=2
 set autoindent
 vnoremap > >gv
 vnoremap < <gv
+set expandtab ts=2 sw=2 ai
+"Window navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 set number
+set nowrap 
+set backspace=indent,eol,start
 
+" Search
+set incsearch
+set hlsearch
+
+set clipboard=unnamed
+
+let CoVim_default_name = "oscar"
+let CoVim_default_port = "1111"
+
+"Cursor
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+nnoremap <CR> :nohlsearch<CR>
+
+" Always show file name in footer
+set laststatus=2
 
 let g:syntastic_javascript_checkers = ['eslint']
 " Override eslint with local version where necessary.
@@ -85,6 +127,9 @@ if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
 endif
 
+" Search in files
+map <leader>a :Ack! <c-r><c-w>
+
 " paste from  any mode
 set clipboard=unnamed
 
@@ -92,3 +137,12 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+
+" Because I often accidentally :W when I mean to :w.
+command! W w
+
+" Because I often accidentally :Q when I mean to :q.
+command! Q q
+
+" Simple note
+source ~/.simplenoterc

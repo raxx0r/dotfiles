@@ -1,5 +1,6 @@
-defaults write NSGlobalDomain KeyRepeat -int 0
-
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
 
 # Remap caps to escape
 

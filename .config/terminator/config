@@ -1,0 +1,22 @@
+[global_config]
+[keybindings]
+  new_tab = <Primary>t
+  split_horiz = <Primary>o
+  split_vert = <Primary>p
+  close_term = <Primary>w
+  close_window = <Primary><Shift>w
+  next_tab = <Primary>Tab
+  prev_tab = <Primary><Shift>Tab
+  new_window = <Primary><Shift>n
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

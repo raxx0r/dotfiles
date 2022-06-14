@@ -1,3 +1,6 @@
+set textwidth=80
+set shiftwidth=2
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
